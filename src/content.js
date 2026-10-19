@@ -58,7 +58,7 @@ export const projects = [
 export const experience = [
   {
     period: 'Sep 2026 — Sekarang',
-    role: 'AI Intern',
+    role: 'Fullstack Developer Intern',
     company: 'Anteraja NextGen AI',
     detail: 'Mengembangkan keterampilan AI dan software engineering melalui program internship dan proyek capstone.',
     current: true,
