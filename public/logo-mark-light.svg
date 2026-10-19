@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>Monogram Rian: huruf R dan simpul sirkuit</title>
+  <path d="M14 53V12h18c11 0 17 6 17 15s-6 15-17 15H14" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m30 42 17 11" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="47" cy="53" r="6" fill="#5BE9B9" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="14" cy="12" r="3.5" fill="#5BE9B9"/>
+  <circle cx="49" cy="27" r="3.5" fill="#5BE9B9"/>
+</svg>

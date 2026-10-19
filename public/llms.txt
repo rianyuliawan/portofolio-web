@@ -1,0 +1,21 @@
+# Rian Yuliawan
+
+> Portofolio resmi Rian Yuliawan, mahasiswa Teknik Informatika UIN Syarif Hidayatullah Jakarta dan software developer yang menekuni AI, robotics, dan IoT.
+
+## Profil
+- Lokasi: Jakarta, Indonesia
+- Saat ini: AI Intern di Anteraja NextGen AI sejak September 2026; Asisten Dosen dan Peneliti di UIN Jakarta sejak September 2024; freelance web developer.
+- Keahlian: React, Laravel, Next.js, Flask, Python, JavaScript, PHP, C++, SQL, machine learning, RAG, Arduino, ESP32, Git.
+- Pendidikan: Teknik Informatika, UIN Syarif Hidayatullah Jakarta, sejak 2023; IPK 3.94/4.00 menurut CV.
+
+## Proyek pilihan
+- Shipment Tracking Widget: https://github.com/rianyuliawan/anteraja-capstone-rianyuliawan
+- RoyanAI: https://github.com/rianyuliawan/RoyanAI
+- Digital Attendance & Booth Tracker: https://github.com/rianyuliawan/rakernas-ihgma
+- Prediksi Harga Kos: https://github.com/rianyuliawan/Forecasting-of-Price-Kost---Data-Science-Project
+- Dashboard Monitoring AIoT: https://github.com/rianyuliawan/esp32-monitoring
+
+## Profil publik
+- GitHub: https://github.com/rianyuliawan
+- LinkedIn: https://www.linkedin.com/in/rian-yuliawan-9b0396265/
+- Email: rianyuliawan04@gmail.com

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="310" viewBox="0 0 900 310" fill="none" role="img" aria-labelledby="title">
+<title id="title">Ilustrasi perangkat lunak, kecerdasan buatan, dan robotika</title>
+<path d="M22 288H878" stroke="#141C3A" stroke-width="3" stroke-linecap="round"/>
+<rect x="187" y="30" width="368" height="216" rx="14" fill="#fff" stroke="#141C3A" stroke-width="5"/>
+<path d="M189 44a12 12 0 0 1 12-12h340a12 12 0 0 1 12 12v17H189V44Z" fill="#141C3A"/>
+<circle cx="208" cy="46" r="4" fill="#5BE9B9"/><circle cx="222" cy="46" r="4" fill="#6E07F3"/><circle cx="236" cy="46" r="4" fill="#fff"/>
+<rect x="205" y="75" width="332" height="153" rx="7" fill="#6E07F3"/>
+<rect x="235" y="95" width="153" height="111" rx="7" fill="#141C3A"/>
+<path d="M253 114h45m-45 16h75m-75 16h49m-49 16h100m-100 16h63" stroke="#5BE9B9" stroke-width="5" stroke-linecap="round"/>
+<path d="M319 114h35m-5 16h25m-30 16h37m-15 32h24" stroke="#B69DFF" stroke-width="5" stroke-linecap="round"/>
+<circle cx="461" cy="145" r="33" stroke="#5BE9B9" stroke-width="5"/><path d="m442 145 13 13 26-28" stroke="#5BE9B9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M338 246v20m66-20v20m-82 0h98" stroke="#141C3A" stroke-width="5" stroke-linecap="round"/>
+<rect x="54" y="119" width="105" height="169" rx="13" fill="#fff" stroke="#141C3A" stroke-width="5"/>
+<path d="M57 133a11 11 0 0 1 11-11h77a11 11 0 0 1 11 11v13H57v-13Z" fill="#141C3A"/>
+<circle cx="106" cy="135" r="3" fill="#5BE9B9"/>
+<rect x="67" y="158" width="79" height="113" rx="4" fill="#F2EAFF"/>
+<rect x="76" y="171" width="61" height="20" rx="4" fill="#6E07F3"/>
+<path d="M80 206h53M80 219h41M80 232h48" stroke="#A9A4C7" stroke-width="5" stroke-linecap="round"/>
+<circle cx="106" cy="278" r="3" fill="#141C3A"/>
+<path d="M581 103h226a11 11 0 0 1 11 11v138H570V114a11 11 0 0 1 11-11Z" fill="#fff" stroke="#141C3A" stroke-width="5"/>
+<rect x="586" y="119" width="216" height="118" rx="5" fill="#5BE9B9"/>
+<path d="M609 139h76M609 154h108M609 169h64" stroke="#1A8070" stroke-width="6" stroke-linecap="round"/>
+<path d="M695 148c19-18 43-6 43 13 0 19-24 27-43 42-19-15-43-23-43-42 0-19 24-31 43-13Z" fill="#6E07F3"/>
+<path d="M565 252h258l25 25H540l25-25Z" fill="#fff" stroke="#141C3A" stroke-width="5" stroke-linejoin="round"/>
+<path d="M650 263h81" stroke="#141C3A" stroke-width="4" stroke-linecap="round"/>
+<path d="M817 203h45v56a15 15 0 0 1-15 15h-15a15 15 0 0 1-15-15v-56Z" fill="#fff" stroke="#141C3A" stroke-width="5"/>
+<path d="M860 213h10a13 13 0 0 1 0 26h-10" stroke="#141C3A" stroke-width="5"/>
+<rect x="830" y="218" width="18" height="30" rx="4" fill="#5BE9B9" stroke="#141C3A" stroke-width="3"/>
+<path d="M95 287h80l-8-11h-72z" fill="#6E07F3" stroke="#141C3A" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="164" cy="81" r="35" fill="#5BE9B9" stroke="#141C3A" stroke-width="4"/><path d="m150 69-13 12 13 12m28-24 13 12-13 12m-10-31-9 39" stroke="#141C3A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

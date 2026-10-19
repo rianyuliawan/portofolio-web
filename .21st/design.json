@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "project": {
+    "name": "portofolio-web",
+    "productType": "personal portfolio",
+    "stack": [
+      "React",
+      "Vite",
+      "Tailwind CSS"
+    ]
+  },
+  "sources": {
+    "tokens": [],
+    "components": [],
+    "assets": [],
+    "instructions": []
+  },
+  "design": {
+    "colorMode": "white sections with vivid purple introduction and footer",
+    "colors": {
+      "navy": "#141C3A",
+      "purple": "#6E07F3",
+      "mint": "#5BE9B9",
+      "white": "#FFFFFF"
+    },
+    "typography": {
+      "body": "Manrope Variable",
+      "display": "Space Grotesk Variable"
+    },
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {},
+    "density": "unknown"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [
+      "Mobile-first responsive layout",
+      "Static prerendered HTML for SEO",
+      "Accessible keyboard navigation and reduced motion"
+    ],
+    "avoid": []
+  },
+  "decisions": [
+    "User selected Matt Farley reference palette and style: minimal white centered hero, illustrated portrait and workspace, vivid purple introduction, overlapping three-column white skill card, spacious project gallery, navy CTA, and purple footer.",
+    "Original R circuit logo represents Rian and three connected disciplines: web, AI, and robotics."
+  ],
+  "evidence": [],
+  "generatedAt": "2026-10-19T03:03:17.741Z"
+}
