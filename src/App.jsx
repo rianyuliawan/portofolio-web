@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowRight, ArrowUpRight, Award, BookOpen, BrainCircuit, Code2, Cpu, Mail, Menu, X } from 'lucide-react';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import {
@@ -37,6 +37,36 @@ function projectMatches(project, filter) {
   return project.visual === 'iot';
 }
 
+function useScrollReveal() {
+  useEffect(() => {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const elements = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (!isIntersecting) return;
+        target.classList.add('is-visible');
+        currentObserver.unobserve(target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+
+    elements.forEach((element) => {
+      const bounds = element.getBoundingClientRect();
+      if (bounds.top < window.innerHeight - 28 && bounds.bottom > 0) {
+        element.classList.add('is-visible');
+      } else {
+        observer.observe(element);
+      }
+    });
+    document.documentElement.classList.add('motion-ready');
+
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove('motion-ready');
+    };
+  }, []);
+}
+
 function Brand({ light = false }) {
   return <a className="brand" href="#beranda" aria-label="Rian Yuliawan, kembali ke beranda">
     <span className="brand-symbol" aria-hidden="true"><img src={light ? "/logo-mark-light.svg" : "/logo-mark.svg"} width="47" height="47" alt="" /></span>
@@ -50,6 +80,14 @@ function SectionLabel({ number, children }) {
 
 function Header() {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [open]);
   return <header className="site-header">
     <div className="container header-inner">
       <Brand />
@@ -59,10 +97,10 @@ function Header() {
       <a className="header-contact" href={`mailto:${identity.email}`}>Sapa saya <ArrowUpRight size={17} aria-hidden="true" /></a>
       <button className="menu-toggle" type="button" aria-label={open ? 'Tutup menu' : 'Buka menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X size={24} /> : <Menu size={24} />}</button>
     </div>
-    {open && <nav className="mobile-nav" id="mobile-navigation" aria-label="Navigasi seluler">
+    <nav className="mobile-nav" id="mobile-navigation" aria-label="Navigasi seluler" data-open={open} aria-hidden={!open} inert={!open}>
       {navigation.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}
       <a href={`mailto:${identity.email}`} onClick={() => setOpen(false)}>Sapa saya<Mail size={16} /></a>
-    </nav>}
+    </nav>
   </header>;
 }
 
@@ -80,7 +118,7 @@ function Hero() {
 
 function About() {
   return <section className="about-section" id="tentang" aria-labelledby="about-title">
-    <div className="container about-inner">
+    <div className="container about-inner" data-reveal="up">
       <h2 id="about-title">Halo, saya Rian. Senang berkenalan.</h2>
       <p>Saya mahasiswa Teknik Informatika di UIN Syarif Hidayatullah Jakarta dengan ketertarikan pada web development, artificial intelligence, dan robotics. Saat ini saya menjalani internship di Anteraja NextGen AI, menjadi asisten dosen dan peneliti, serta membangun proyek web secara freelance.</p>
       <p>Saya menikmati proses menghubungkan ide, orang, dan teknologi. Bagi saya, karya yang baik bukan hanya bekerja dengan benar, tetapi juga membantu orang menyelesaikan masalah dengan lebih mudah.</p>
@@ -96,8 +134,8 @@ function Expertise() {
     { Icon: Cpu, title: 'Robotics Mentor', text: 'Saya senang menghubungkan kode dengan sensor, perangkat, dan pengalaman belajar yang menyenangkan.', label: 'Perangkat & tools', examples: 'Arduino, ESP32, MQTT, Scratch, Pictoblox' },
   ];
   return <section className="expertise-section" id="keahlian" aria-labelledby="expertise-title"><div className="container">
-    <div className="discipline-grid">{disciplines.map(({ Icon, title, text, label, examples }) => <article className="discipline-card" key={title}><div className="discipline-icon"><Icon size={28} strokeWidth={1.8} aria-hidden="true" /></div><h3>{title}</h3><p>{text}</p><div className="discipline-detail"><strong>{label}</strong><span>{examples}</span></div></article>)}</div>
-    <div className="stack-section"><SectionLabel number="01">Keahlian & tools</SectionLabel><h2 id="expertise-title">Bahasa dan alat yang saya gunakan.</h2><p>Selalu ada hal baru untuk dipelajari. Inilah teknologi yang saat ini paling dekat dengan pekerjaan dan eksperimen saya.</p><div className="skills-grid" aria-label="Daftar teknologi dan bahasa pemrograman">{skills.map(({ name, Icon, color }) => <div className="skill-item" key={name}><Icon style={{ color }} aria-hidden="true" /><span>{name}</span></div>)}</div></div>
+    <div className="discipline-grid">{disciplines.map(({ Icon, title, text, label, examples }) => <article className="discipline-card" key={title} data-reveal="up"><div className="discipline-icon"><Icon size={28} strokeWidth={1.8} aria-hidden="true" /></div><h3>{title}</h3><p>{text}</p><div className="discipline-detail"><strong>{label}</strong><span>{examples}</span></div></article>)}</div>
+    <div className="stack-section" data-reveal="up"><SectionLabel number="01">Keahlian & tools</SectionLabel><h2 id="expertise-title">Bahasa dan alat yang saya gunakan.</h2><p>Selalu ada hal baru untuk dipelajari. Inilah teknologi yang saat ini paling dekat dengan pekerjaan dan eksperimen saya.</p><div className="skills-grid" aria-label="Daftar teknologi dan bahasa pemrograman">{skills.map(({ name, Icon, color }) => <div className="skill-item" key={name} data-reveal="up"><Icon style={{ color }} aria-hidden="true" /><span>{name}</span></div>)}</div></div>
   </div></section>;
 }
 
@@ -114,10 +152,10 @@ function Projects() {
   const shown = projects.filter((project) => projectMatches(project, filter));
   return <section className="projects-section" id="proyek" aria-labelledby="projects-title"><div className="container">
     <SectionLabel number="02">Karya pilihan</SectionLabel>
-    <h2 id="projects-title" className="section-title">Proyek yang saya bangun.</h2>
-    <p className="section-intro">Dari aplikasi web hingga AI dan IoT, setiap proyek adalah kesempatan untuk belajar dan memberi solusi.</p>
-    <div className="filter-list" role="group" aria-label="Filter kategori proyek">{filters.map((item) => <button key={item} type="button" className={filter === item ? 'active' : ''} aria-pressed={filter === item} onClick={() => setFilter(item)}>{item}</button>)}</div>
-    <div className="project-grid">{shown.map((project) => <article className="project-card" key={project.number}><ProjectVisual type={project.visual} /><div className="project-content"><span className="project-category">{project.category}</span><h3>{project.title}</h3><p>{project.description}</p><div className="project-foot"><div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`Lihat proyek ${project.title} di GitHub`}><ArrowUpRight size={19} aria-hidden="true" /></a></div></div></article>)}</div>
+    <h2 id="projects-title" className="section-title" data-reveal="up">Proyek yang saya bangun.</h2>
+    <p className="section-intro" data-reveal="up">Dari aplikasi web hingga AI dan IoT, setiap proyek adalah kesempatan untuk belajar dan memberi solusi.</p>
+    <div className="filter-list" data-reveal="up" role="group" aria-label="Filter kategori proyek">{filters.map((item) => <button key={item} type="button" className={filter === item ? 'active' : ''} aria-pressed={filter === item} onClick={() => setFilter(item)}>{item}</button>)}</div>
+    <div className="project-grid" data-reveal="up">{shown.map((project) => <article className="project-card" key={`${filter}-${project.number}`}><ProjectVisual type={project.visual} /><div className="project-content"><span className="project-category">{project.category}</span><h3>{project.title}</h3><p>{project.description}</p><div className="project-foot"><div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`Lihat proyek ${project.title} di GitHub`}><ArrowUpRight size={19} aria-hidden="true" /></a></div></div></article>)}</div>
     <a className="outline-button more-projects" href={identity.github} target="_blank" rel="noopener noreferrer"><SiGithub aria-hidden="true" /> Lihat semua di GitHub</a>
   </div></section>;
 }
@@ -125,19 +163,19 @@ function Projects() {
 function Experience() {
   return <section className="experience-section" id="pengalaman" aria-labelledby="experience-title"><div className="container">
     <SectionLabel number="03">Perjalanan</SectionLabel><h2 id="experience-title" className="section-title">Belajar lewat pengalaman.</h2><p className="section-intro">Ruang kelas, tim produk, riset, dan komunitas telah membentuk cara saya bekerja.</p>
-    <div className="experience-layout"><div className="education-card"><BookOpen size={29} strokeWidth={1.6} aria-hidden="true" /><span>PENDIDIKAN</span><h3>Teknik Informatika</h3><p>UIN Syarif Hidayatullah Jakarta<br />2023 — Sekarang</p><strong>IPK 3.94 / 4.00</strong></div><div className="timeline">{experience.map((item) => <article className="timeline-item" key={`${item.company}-${item.role}`}><div className="timeline-marker"/><div className="timeline-body"><div className="timeline-top"><span>{item.period}</span>{item.current && <span className="current-badge">Aktif</span>}</div><h3>{item.role}</h3><p className="timeline-company">{item.company}</p><p className="timeline-detail">{item.detail}</p></div></article>)}</div></div>
+    <div className="experience-layout"><div className="education-card" data-reveal="left"><BookOpen size={29} strokeWidth={1.6} aria-hidden="true" /><span>PENDIDIKAN</span><h3>Teknik Informatika</h3><p>UIN Syarif Hidayatullah Jakarta<br />2023 — Sekarang</p><strong>IPK 3.94 / 4.00</strong></div><div className="timeline">{experience.map((item) => <article className="timeline-item" key={`${item.company}-${item.role}`} data-reveal="right"><div className="timeline-marker"/><div className="timeline-body"><div className="timeline-top"><span>{item.period}</span>{item.current && <span className="current-badge">Aktif</span>}</div><h3>{item.role}</h3><p className="timeline-company">{item.company}</p><p className="timeline-detail">{item.detail}</p></div></article>)}</div></div>
   </div></section>;
 }
 
 function Recognition() {
   return <section className="recognition-section" id="apresiasi" aria-labelledby="recognition-title"><div className="container">
     <SectionLabel number="04">Pencapaian</SectionLabel><h2 id="recognition-title" className="section-title">Belajar, mencoba, bertumbuh.</h2><p className="section-intro">Penghargaan dan sertifikasi yang menandai perjalanan saya sejauh ini.</p>
-    <div className="recognition-grid"><div className="awards-panel"><div className="panel-heading"><Award size={24} strokeWidth={1.7} aria-hidden="true" /><h3>Penghargaan</h3></div>{awards.map((award) => <div className="award-row" key={award.title}><span className="award-index">{award.accent}</span><div><h4>{award.title}</h4><p>{award.context}</p></div><span className="award-year">{award.year}</span></div>)}</div><div className="cert-panel"><div className="panel-heading"><BookOpen size={24} strokeWidth={1.7} aria-hidden="true" /><h3>Sertifikasi terpilih</h3></div><div className="cert-list">{certificates.map((cert) => <div className="cert-row" key={cert.title}><div><span>{cert.type}</span><h4>{cert.title}</h4><p>{cert.issuer}</p></div><span>{cert.year}</span></div>)}</div></div></div>
+    <div className="recognition-grid"><div className="awards-panel" data-reveal="left"><div className="panel-heading"><Award size={24} strokeWidth={1.7} aria-hidden="true" /><h3>Penghargaan</h3></div>{awards.map((award) => <div className="award-row" key={award.title}><span className="award-index">{award.accent}</span><div><h4>{award.title}</h4><p>{award.context}</p></div><span className="award-year">{award.year}</span></div>)}</div><div className="cert-panel" data-reveal="right"><div className="panel-heading"><BookOpen size={24} strokeWidth={1.7} aria-hidden="true" /><h3>Sertifikasi terpilih</h3></div><div className="cert-list">{certificates.map((cert) => <div className="cert-row" key={cert.title}><div><span>{cert.type}</span><h4>{cert.title}</h4><p>{cert.issuer}</p></div><span>{cert.year}</span></div>)}</div></div></div>
   </div></section>;
 }
 
 function Contact() {
-  return <section className="contact-section" id="kontak" aria-labelledby="contact-title"><div className="container"><div className="contact-card"><div><h2 id="contact-title">Mari berkolaborasi</h2><p>Punya proyek, ide, atau pertanyaan? Saya senang mendengarnya.</p></div><a className="contact-button" href={`mailto:${identity.email}`}>Sapa saya <ArrowRight size={18} aria-hidden="true" /></a></div></div></section>;
+  return <section className="contact-section" id="kontak" aria-labelledby="contact-title"><div className="container"><div className="contact-card" data-reveal="up"><div><h2 id="contact-title">Mari berkolaborasi</h2><p>Punya proyek, ide, atau pertanyaan? Saya senang mendengarnya.</p></div><a className="contact-button" href={`mailto:${identity.email}`}>Sapa saya <ArrowRight size={18} aria-hidden="true" /></a></div></div></section>;
 }
 
 function Footer() {
@@ -145,5 +183,6 @@ function Footer() {
 }
 
 export default function App() {
+  useScrollReveal();
   return <><a className="skip-link" href="#konten">Lewati ke konten</a><Header /><main id="konten"><Hero /><About /><Expertise /><Projects /><Experience /><Recognition /><Contact /></main><Footer /></>;
 }

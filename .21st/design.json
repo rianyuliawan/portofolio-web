@@ -30,7 +30,11 @@
     "spacing": {},
     "radius": {},
     "shadows": {},
-    "motion": {},
+    "motion": {
+      "entrance": "subtle, 420-700ms",
+      "scrollReveal": "once per element",
+      "reducedMotion": "respected"
+    },
     "density": "unknown"
   },
   "components": {
@@ -48,7 +52,8 @@
   },
   "decisions": [
     "User selected Matt Farley reference palette and style: minimal white centered hero, illustrated portrait and workspace, vivid purple introduction, overlapping three-column white skill card, spacious project gallery, navy CTA, and purple footer.",
-    "Original R circuit logo represents Rian and three connected disciplines: web, AI, and robotics."
+    "Original R circuit logo represents Rian and three connected disciplines: web, AI, and robotics.",
+    "Motion is restrained: short scroll reveals and staggered cards use opacity/transform, mobile navigation slides in and out, and reduced-motion users see static content."
   ],
   "evidence": [],
   "generatedAt": "2026-10-19T03:03:17.741Z"
