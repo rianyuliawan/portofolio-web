@@ -141,7 +141,7 @@ function Contact() {
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container footer-inner"><Brand light /><p>Terus belajar, membangun, dan berbagi.</p><div className="footer-social"><a href={identity.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Rian Yuliawan"><SiGithub size={21} /></a><a href={identity.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Rian Yuliawan"><FaLinkedinIn size={21} /></a><a href={`mailto:${identity.email}`} aria-label="Email Rian Yuliawan"><Mail size={21} /></a></div><span>© 2026 Rian Yuliawan</span></div></footer>;
+  return <footer className="footer"><div className="container footer-inner"><Brand light /><p>Terus belajar, membangun, dan berbagi.</p><div className="footer-social"><a href={identity.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Rian Yuliawan"><SiGithub size={21} aria-hidden="true" /></a><a href={identity.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Rian Yuliawan"><FaLinkedinIn size={21} aria-hidden="true" /></a><a href={`mailto:${identity.email}`} aria-label="Email Rian Yuliawan"><Mail size={21} aria-hidden="true" /></a></div><span>© 2026 Rian Yuliawan</span></div></footer>;
 }
 
 export default function App() {

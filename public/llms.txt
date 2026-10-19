@@ -4,9 +4,9 @@
 
 ## Profil
 - Lokasi: Jakarta, Indonesia
-- Saat ini: AI Intern di Anteraja NextGen AI sejak September 2026; Asisten Dosen dan Peneliti di UIN Jakarta sejak September 2024; freelance web developer.
+- Saat ini: Fullstack DEveloper Intern di Anteraja NextGen AI sejak September 2026; Asisten Dosen dan Peneliti di UIN Jakarta sejak September 2024; freelance web developer.
 - Keahlian: React, Laravel, Next.js, Flask, Python, JavaScript, PHP, C++, SQL, machine learning, RAG, Arduino, ESP32, Git.
-- Pendidikan: Teknik Informatika, UIN Syarif Hidayatullah Jakarta, sejak 2023; IPK 3.94/4.00 menurut CV.
+- Pendidikan: Teknik Informatika, UIN Syarif Hidayatullah Jakarta, sejak 2023; IPK 3.94/4.00.
 
 ## Proyek pilihan
 - Shipment Tracking Widget: https://github.com/rianyuliawan/anteraja-capstone-rianyuliawan
@@ -19,3 +19,4 @@
 - GitHub: https://github.com/rianyuliawan
 - LinkedIn: https://www.linkedin.com/in/rian-yuliawan-9b0396265/
 - Email: rianyuliawan04@gmail.com
+- [Portofolio Rian Yuliawan](https://www.rianyuliawan.my.id/)
