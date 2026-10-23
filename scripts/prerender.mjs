@@ -7,7 +7,7 @@ const file = new URL('index.html', dist);
 let html = await readFile(file, 'utf8');
 html = html.replace('<div id="root"></div>', `<div id="root">${render()}</div>`);
 
-const rawSiteUrl = process.env.SITE_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VITE_VERCEL_PROJECT_PRODUCTION_URL || '';
+const rawSiteUrl = process.env.SITE_URL || 'https://www.rianyuliawan.my.id';
 const siteUrl = rawSiteUrl ? (rawSiteUrl.startsWith('http') ? rawSiteUrl : `https://${rawSiteUrl}`).replace(/\/+$/, '') : '';
 const schema = {
   '@context': 'https://schema.org',

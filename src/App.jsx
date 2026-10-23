@@ -69,7 +69,7 @@ function useScrollReveal() {
 
 function Brand({ light = false }) {
   return <a className="brand" href="#beranda" aria-label="Rian Yuliawan, kembali ke beranda">
-    <span className="brand-symbol" aria-hidden="true"><img src={light ? "/logo-mark-light.svg" : "/logo-mark.svg"} width="47" height="47" alt="" /></span>
+    <span className={`brand-symbol${light ? " brand-symbol-light" : ""}`} aria-hidden="true" />
     <span className="brand-name">rian<span>yuliawan</span></span>
   </a>;
 }
@@ -111,7 +111,7 @@ function Hero() {
       <h1 id="hero-title">Software Developer, AI &amp; Robotics</h1>
       <p className="hero-subtitle">Saya merancang dan membangun solusi digital yang sederhana dan berguna.</p>
       <div className="hero-portrait"><div className="portrait-disc" aria-hidden="true" /><img src="/rian-avatar.webp" width="800" height="726" alt="Ilustrasi Rian Yuliawan" fetchPriority="high" /></div>
-      <img className="hero-workspace" src="/hero-workspace.svg" width="900" height="310" alt="" aria-hidden="true" />
+      <img className="hero-workspace" src="/hero-workspace.svg" width="900" height="310" alt="Ilustrasi aplikasi web di ponsel dan komputer dengan kode serta fitur AI" />
     </div>
   </section>;
 }
